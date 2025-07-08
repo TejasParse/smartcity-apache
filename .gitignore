@@ -1,0 +1,5 @@
+venv/
+command.txt
+smartcity-admin_accessKeys.csv
+venv/*
+jobs/__pycache__
