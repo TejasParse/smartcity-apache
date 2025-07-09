@@ -4,6 +4,17 @@
 
 This project simulates a real-time Smart City environment using streaming IoT data (vehicles, GPS, traffic cameras, weather, and emergency events). It demonstrates how to build an end-to-end ELT data pipeline using Apache Kafka, Apache Spark, AWS S3, AWS Glue, Athena, and Redshift.
 
+## Architecture
+
+The following diagram illustrates the full architecture of the Smart City pipeline:
+
+![image](https://github.com/user-attachments/assets/30b4ac7e-9aed-4358-9d24-dbbe5970a4a0)
+
+1. Python producers simulate smart city data and send it to Kafka.
+2. Spark consumes Kafka topics, processes data, and writes to Amazon S3.
+3. AWS Glue crawls the S3 data and creates schema tables.
+4. Athena and Redshift Spectrum are used for downstream SQL-based querying.
+
 ## Description
 
 The pipeline consists of:
@@ -64,17 +75,6 @@ This script reads from Kafka, processes the data, and writes Parquet files to S3
 - **Query Data with Athena or Redshift**:
   - In Athena: Point to the Glue database and run queries
   - In Redshift Spectrum: Use external schema to query S3 tables
-
-## Architecture
-
-The following diagram illustrates the full architecture of the Smart City pipeline:
-
-![image](https://github.com/user-attachments/assets/30b4ac7e-9aed-4358-9d24-dbbe5970a4a0)
-
-1. Python producers simulate smart city data and send it to Kafka.
-2. Spark consumes Kafka topics, processes data, and writes to Amazon S3.
-3. AWS Glue crawls the S3 data and creates schema tables.
-4. Athena and Redshift Spectrum are used for downstream SQL-based querying.
 
 ## Technologies Used
 
